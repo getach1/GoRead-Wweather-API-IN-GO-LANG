@@ -1,0 +1,83 @@
+<!Doctype html>
+<html>
+
+<head>
+    <title>form</title>
+
+    <link href="/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/css/dataTables.bootstrap4.css" rel="stylesheet">
+</head>
+
+    <div class="container-fluid">
+        <h1 class="mt-4">Hello!! In this week  {{.Summary}}</h1>
+        <div class="container">
+            <table class="datatable table table-bordered table-striped"  style="width:100%;" cellspacing="0">
+                <thead>
+                <tr>
+{{/*                    <th>Date</th>*/}}
+                    <th>Summary</th>
+                    <th>High Temperature</th>
+                    <th>Low Temperature</th>
+                    <th>Humidity</th>
+                    <th>Pressure</th>
+                    <th>Precipitation Type</th>
+                </tr>
+                </thead>
+                <tfoot>
+                <tr>
+{{/*                    <th>Date</th>*/}}
+                    <th>Summary</th>
+                    <th>High Temperature</th>
+                    <th>Low Temperature</th>
+                    <th>Humidity</th>
+                    <th>Pressure</th>
+                    <th>Precipitation Type</th>
+                </tr>
+                </tfoot>
+                <tbody>
+         {{range .Data}}
+             <tr>
+{{/*                    <td>{{.Date}}</td>*/}}
+                    <th>{{.Summary}}</th>
+                    <td>{{.TemperatureHigh}}</td>
+                    <td>{{.TemperatureLow}}</td>
+                    <td>{{.Humidity}}</td>
+                    <td>{{.Pressure}}</td>
+                    <td>{{.PrecipType}}</td>
+                </tr>
+                    {{end}}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+    </div>
+
+    <script src="/assets/js/bootstrap.js"></script>
+    <!-- Menu Toggle Script -->
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/js/poper.min.js"></script>
+
+    <script src="/assets/js/http_cdn.datatables.net_1.10.18_js_jquery.dataTables.js"></script>
+
+    <script src="/assets/js/http_cdn.datatables.net_1.10.18_js_dataTables.bootstrap4.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.datatable').DataTable();
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+                $(this).toggleClass('active');
+            });
+        });
+    </script>
+</body>
+    </html>
